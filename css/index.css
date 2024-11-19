@@ -1,0 +1,150 @@
+/* Basic Style ... */
+:root {
+    --main-background-color: #F7ECDE;
+    --selection-color: #FEC260;
+    --focus-input-border-color: #d99c39;
+    --focus-input-boxShadow-color: #fec26055;
+    --start-gradient-color: #3ca55c;
+    --end-gradient-color: #b5ac49;
+    --submit-color: #D1512D;
+    --submit-hover-color: #BB4120;
+    --visit-color: #9EB23B;
+    --visit-hover-color: #8A9E23;
+    --delete-color: #EB1D36;
+    --delete-hover-color: #D30820;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "PT Sans Caption", sans-serif;
+    background-color: var(--main-background-color) !important;
+    font-weight: 400;
+}
+body ::selection{
+    background-color: var(--selection-color);
+}
+
+h1 {
+    font-family: "Pacifico", cursive;
+}
+
+h2 {
+    font-family: "Righteous", sans-serif;
+}
+
+/* Body Style ... */
+.bookmark{
+    height: 100vh;
+}
+.bookmark h1{
+    position: relative;
+    font-size: 50px;
+}
+.bookmark h1::before{
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 25%;
+    left: 0;
+    bottom: 1rem;
+    background-color: var(--selection-color);
+    z-index: -1;
+    transition: .5s;
+}
+.bookmark h1:hover::before{
+    height: 45%;
+}
+.bookmark .bookmark-content{
+    border-top: 2px dotted #000 ;
+    border-bottom: 2px dotted #000 ;
+}
+.bookmark .bookmark-content h2{
+    font-size: 1.5rem;
+    font-weight: 400;
+    background-image: linear-gradient(to right, var(--start-gradient-color), var(--end-gradient-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.bookmark .bookmark-content input:focus{
+    border: 1px solid var(--focus-input-border-color);
+    outline: 4px solid #fcc46aa8;
+}
+.bookmark .bookmark-content .btn{
+    background-color: var(--submit-color);
+    color: #fff;
+    letter-spacing: .8px;
+    transition: .5s;
+}
+.is-valid{
+    border-color: green !important ;
+    outline: 4px solid rgba(0, 128, 0, 0.11) !important;
+}
+.is-invalid{
+    border-color: red !important ;
+    outline: 4px solid rgba(255, 0, 0, 0.137) !important;
+}
+.bookmark .bookmark-content .btn:hover{
+    background-color: var(--submit-hover-color);
+}
+.boxValid-info{
+    display: none;
+    background-color: #00000062;
+    justify-content: center;
+    align-items: center;
+}
+.boxValid-info .box-content{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    min-height: 200px;
+}
+.box-content .circle span{
+    width: 18px;
+    height: 18px;
+}
+.box-content p{
+    font-family: "Bree Serif", serif;
+}
+.list-items li{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    column-gap: 8px;
+}
+.list-items li .icon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #a00000;
+    border-radius: 50%;
+}
+.list-items li .icon i{
+    font-size: 12px;
+    color: #a00000;
+}
+.close-icon{
+    font-size: 20px;
+    font-weight: 600;
+    cursor: pointer;
+}
+.boxValid-info.hidden{
+    display: none !important;
+}
+.boxValid-info.visible{
+    display: flex;
+}
+
+@media screen and (max-width: 568px){
+    .boxValid-info .box-content{
+       width: 90%;
+    }
+}
