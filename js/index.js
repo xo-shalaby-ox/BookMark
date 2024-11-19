@@ -22,7 +22,8 @@ function createSiteLink() {
         webSiteName.classList.remove("is-valid");
         webSiteUrl.classList.remove("is-valid");
       }else {
-        popUp.classList.add("visible")
+        popUp.classList.add("visible");
+        popUp.classList.remove("hidden");
       }
   display();
   reset();
@@ -108,4 +109,5 @@ function visit(index) {
 //*************** Close Function ***************
 function closePopUp(){
   popUp.classList.add("hidden");
+  popUp.classList.remove("visible");
 }
