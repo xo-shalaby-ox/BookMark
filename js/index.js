@@ -165,9 +165,15 @@ function updateOnSite(index) {
 function update() {
   webSitesList[indexInfo].siteName = webSiteName.value;
   webSitesList[indexInfo].siteURL = webSiteUrl.value;
-  display(webSitesList);
-  localStorage.setItem("sites", JSON.stringify(webSitesList));
-  reset();
-  subBtn.style.display = "block";
-  updBtn.style.display = "none";
+  if(nameRegExp.test(webSitesList[indexInfo].siteName) && urlRegExp.test(webSitesList[indexInfo].siteURL)){
+    display(webSitesList);
+    localStorage.setItem("sites", JSON.stringify(webSitesList));
+    reset();
+    subBtn.style.display = "block";
+    updBtn.style.display = "none";
+  }
+  else{
+    popUp.classList.add("visible");
+    popUp.classList.remove("hidden");
+  }
 }
